@@ -63,7 +63,7 @@ const Navigation = () => {
             <Button
               onClick={() =>
                 window.open(
-                  "\src\assets\6167_4Y_Resume.pdf",
+                  "src\assets\6167_4Y_Resume.pdf",
                   "_blank"
                 )
               }
@@ -106,7 +106,7 @@ const Navigation = () => {
               <Button
                 onClick={() => {
                   window.open(
-                    "\src\assets\6167_4Y_Resume.pdf",
+                    "src\assets\6167_4Y_Resume.pdf",
                     "_blank"
                   );
                   setIsMobileMenuOpen(false);
