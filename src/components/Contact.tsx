@@ -115,7 +115,7 @@ const Contact = () => {
     },
     {
       name: "Portfolio",
-      url: "https://abbireddyprasad-brs.github.io/abbireddy-portfolio/",
+      url: "https://abbireddy-portfolio.vercel.app/",
       icon: ExternalLink,
       description: "Previous portfolio",
       color: "hover:text-cyber-purple"
