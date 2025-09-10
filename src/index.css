@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cyberpunk Dark Theme Colors */
+    --background: 230 15% 5%;
+    --foreground: 180 100% 90%;
+
+    --card: 230 20% 8%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 230 20% 8%;
+    --popover-foreground: 180 100% 90%;
+
+    /* Neon Electric Blue Primary */
+    --primary: 195 100% 60%;
+    --primary-foreground: 230 15% 5%;
+
+    /* Dark Secondary */
+    --secondary: 230 20% 12%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 230 15% 10%;
+    --muted-foreground: 180 50% 70%;
+
+    /* Neon Cyan Accent */
+    --accent: 180 100% 50%;
+    --accent-foreground: 230 15% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 20% 15%;
+    --input: 230 20% 12%;
+    --ring: 195 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Cyberpunk Neon Colors */
+    --cyber-blue: 195 100% 60%;
+    --cyber-cyan: 180 100% 50%;
+    --cyber-purple: 270 100% 70%;
+    --cyber-pink: 320 100% 70%;
+    --cyber-green: 120 100% 50%;
+    --cyber-yellow: 60 100% 50%;
+
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(195 100% 60%), hsl(270 100% 70%));
+    --gradient-neon: linear-gradient(45deg, hsl(180 100% 50%), hsl(320 100% 70%));
+    --gradient-dark: linear-gradient(180deg, hsl(230 15% 5%), hsl(230 20% 8%));
+
+    /* Shadows and Glows */
+    --shadow-neon: 0 0 20px hsl(195 100% 60% / 0.5);
+    --shadow-cyber: 0 0 30px hsl(270 100% 70% / 0.3);
+    --glow-blue: 0 0 40px hsl(195 100% 60% / 0.6);
+    --glow-cyan: 0 0 40px hsl(180 100% 50% / 0.6);
+
+    /* Animations */
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.4s ease-in-out;
+
+    --sidebar-background: 230 20% 8%;
+    --sidebar-foreground: 180 100% 90%;
+    --sidebar-primary: 195 100% 60%;
+    --sidebar-primary-foreground: 230 15% 5%;
+    --sidebar-accent: 230 20% 12%;
+    --sidebar-accent-foreground: 180 100% 90%;
+    --sidebar-border: 230 20% 15%;
+    --sidebar-ring: 195 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
