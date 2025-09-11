@@ -63,7 +63,7 @@ const Navigation = () => {
             <Button
               onClick={() =>
                 window.open(
-                  "src\assets\6167_4Y_Resume.pdf",
+                  "https://drive.google.com/file/d/1yEkz-T44DP_KHGjw9F_atUxoBceW_ukJ/view?usp=sharing",
                   "_blank"
                 )
               }
@@ -106,7 +106,7 @@ const Navigation = () => {
               <Button
                 onClick={() => {
                   window.open(
-                    "src\assets\6167_4Y_Resume.pdf",
+                    "https://drive.google.com/file/d/1yEkz-T44DP_KHGjw9F_atUxoBceW_ukJ/view?usp=sharing",
                     "_blank"
                   );
                   setIsMobileMenuOpen(false);
