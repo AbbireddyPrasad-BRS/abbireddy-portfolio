@@ -165,7 +165,7 @@ const Hero = () => {
             <Code2 className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
           </a>
           <a
-            href="src/assets/6167_4Y_Resume.pdf"
+            href="https://drive.google.com/file/d/1yEkz-T44DP_KHGjw9F_atUxoBceW_ukJ/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-cyber-cyan transition-colors duration-300 transform hover:scale-110"
