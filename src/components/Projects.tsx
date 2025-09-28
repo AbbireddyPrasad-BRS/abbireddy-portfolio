@@ -44,8 +44,8 @@ const Projects = () => {
         "Multi-format support (PDF, images)",
         "Secure student data management"
       ],
-      demo: "https://abbireddy-exam-evaluator.onrender.com/",
-      github: "https://github.com/AbbireddyPrasad-BRS/ai-exam-evaluator",
+      demo: "https://abbireddy-exam-evaluator.netlify.app/",
+      github: "https://github.com/AbbireddyPrasad-BRS/exam-evaluator",
       icon: Brain
     },
     {
