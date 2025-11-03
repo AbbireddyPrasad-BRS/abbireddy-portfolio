@@ -3,13 +3,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ExternalLink, Github, Brain, Gamepad2, Rocket } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import WheelGestures from "embla-carousel-wheel-gestures";
+import { ExternalLink, Github, Brain, Gamepad2, Rocket, Receipt } from "lucide-react";
 // import projectAiEval from "@/assets/project-ai-eval.jpg";
 import projectAiEval from "@/assets/ai-exam-pic.png";
 // import projectRps from "@/assets/project-rps.jpg";
 import projectRps from "@/assets/rps-project-pic.png";
 // import projectSpacex from "@/assets/project-spacex.jpg";
 import projectSpacex from "@/assets/spacex-project-pic.png";
+import projectBillBuddy from "@/assets/bill-buddy.jpg";
 import projectbg from "@/assets/projects-bg.png";
 
 interface Project {
@@ -27,7 +31,7 @@ interface Project {
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
+ 
   const projects: Project[] = [
     {
       id: 1,
@@ -85,6 +89,26 @@ const Projects = () => {
       demo: "https://abbireddyprasad-rock-paper-scissiors.netlify.app/",
       github: "https://github.com/AbbireddyPrasad-BRS/rock-paper-scissiors",
       icon: Gamepad2
+    },
+    {
+      id: 4,
+      title: "Bill Buddy",
+      description: "Smart bill management application with expense tracking and financial insights",
+      longDescription: "A comprehensive bill management application designed to help users track expenses, manage budgets, and gain financial insights through intuitive dashboards and automated categorization.",
+      image: projectBillBuddy,
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js", "JWT"],
+      features: [
+        "Expense tracking with automatic categorization",
+        "Interactive charts and financial analytics",
+        "Budget planning and goal setting",
+        "Multi-currency support",
+        "Secure user authentication",
+        "Mobile-responsive design",
+        "Export reports in multiple formats"
+      ],
+      demo: "https://a-bb.netlify.app",
+      github: "https://github.com/AbbireddyPrasad-BRS/bill-buddy",
+      icon: Receipt
     }
   ];
 
@@ -128,89 +152,120 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => {
-            const IconComponent = project.icon;
-            return (
-              <Card 
-                key={project.id}
-                className="group bg-card/80 backdrop-blur-sm border-border hover:border-cyber-cyan transition-all duration-500 transform hover:scale-105 hover:shadow-cyber cursor-pointer overflow-hidden"
-                onClick={() => setSelectedProject(project)}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-4 right-4 bg-cyber-cyan/20 backdrop-blur-sm rounded-full p-2">
-                    <IconComponent className="h-6 w-6 text-cyber-cyan" />
-                  </div>
-                </div>
-                
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-cyber text-foreground group-hover:text-cyber-cyan transition-colors duration-300">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="space-y-4">
-                  <p className="text-muted-background leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} className="bg-cyber-cyan/10 text-cyber-cyan border-cyber-cyan/30">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <Badge className="bg-muted text-muted-background">
-                        +{project.technologies.length - 3} more
-                      </Badge>
-                    )}
-                  </div>
-                  
-                  <div className="flex justify-between items-center pt-4">
-                    <span className="text-sm text-cyber-cyan font-medium">
-                      Click to explore →
-                    </span>
-                    <div className="flex space-x-2">
-                      {project.github && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.github, "_blank");
-                          }}
-                          className="text-muted-foreground hover:text-cyber-black"
-                        >
-                          <Github className="h-4 w-4" />
-                        </Button>
-                      )}
-                      {project.demo && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.demo, "_blank");
-                          }}
-                          className="text-muted-background hover:text-cyber-black"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+        <div className="relative w-full max-w-6xl mx-auto">
+          <Carousel
+            className="w-full"
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: true,
+                stopOnMouseEnter: true,
+              }),
+              WheelGestures({
+                forceWheelAxis: "x",
+              }),
+            ]}
+            opts={{
+              align: "start",
+              loop: true,
+              dragFree: false,
+            }}
+          >
+            <CarouselContent className="-ml-4">
+              {projects.map((project, index) => {
+                const IconComponent = project.icon;
+                return (
+                  <CarouselItem key={project.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card
+                      className="group bg-card/80 backdrop-blur-sm border-border hover:border-cyber-cyan transition-all duration-500 transform hover:scale-105 hover:shadow-cyber cursor-pointer overflow-hidden"
+                      onClick={() => setSelectedProject(project)}
+                      style={{ animationDelay: `${index * 200}ms` }}
+                    >
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-4 right-4 bg-cyber-cyan/20 backdrop-blur-sm rounded-full p-2">
+                          <IconComponent className="h-6 w-6 text-cyber-cyan" />
+                        </div>
+                      </div>
+
+                      <CardHeader className="pb-4">
+                        <CardTitle className="text-xl font-cyber text-foreground group-hover:text-cyber-cyan transition-colors duration-300">
+                          {project.title}
+                        </CardTitle>
+                      </CardHeader>
+
+                      <CardContent className="space-y-4">
+                        <p className="text-muted-background leading-relaxed">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.slice(0, 3).map((tech) => (
+                            <Badge key={tech} className="bg-cyber-cyan/10 text-cyber-cyan border-cyber-cyan/30">
+                              {tech}
+                            </Badge>
+                          ))}
+                          {project.technologies.length > 3 && (
+                            <Badge className="bg-muted text-muted-background">
+                              +{project.technologies.length - 3} more
+                            </Badge>
+                          )}
+                        </div>
+
+                        <div className="flex justify-between items-center pt-4">
+                          <span className="text-sm text-cyber-cyan font-medium">
+                            Click to explore →
+                          </span>
+                          <div className="flex space-x-2">
+                            {project.github && (
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.open(project.github, "_blank");
+                                }}
+                                className="text-muted-foreground hover:text-cyber-black"
+                              >
+                                <Github className="h-4 w-4" />
+                              </Button>
+                            )}
+                            {project.demo && (
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.open(project.demo, "_blank");
+                                }}
+                                className="text-muted-background hover:text-cyber-black"
+                              >
+                                <ExternalLink className="h-4 w-4" />
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
+
+          {/* Floating Scroll Message */}
+          <div className="absolute top-1/2 right-[-120px] transform -translate-y-1/2 z-10 hidden xl:flex items-center space-x-2 bg-cyber-cyan/10 backdrop-blur-sm border border-cyber-cyan/30 rounded-lg px-3 py-2 animate-pulse">
+            <span className="text-cyber-cyan text-sm font-medium whitespace-nowrap">
+              ← Scroll to view more projects
+            </span>
+          </div>
         </div>
 
         {/* Project Detail Modal */}
