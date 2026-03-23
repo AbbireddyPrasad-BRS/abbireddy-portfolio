@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import WheelGestures from "embla-carousel-wheel-gestures";
-import { ExternalLink, Github, Brain, Gamepad2, Rocket, Receipt } from "lucide-react";
+import { ExternalLink, Github, Brain, Gamepad2, Rocket, Receipt, MoveHorizontal } from "lucide-react";
 // import projectAiEval from "@/assets/project-ai-eval.jpg";
 import projectAiEval from "@/assets/ai-exam-pic.png";
 // import projectRps from "@/assets/project-rps.jpg";
@@ -15,6 +15,8 @@ import projectRps from "@/assets/rps-project-pic.png";
 import projectSpacex from "@/assets/spacex-project-pic.png";
 import projectBillBuddy from "@/assets/bill-buddy.jpg";
 import projectbg from "@/assets/projects-bg.png";
+import projectAlphaGrade from "@/assets/alphagrade-pic.png";
+
 
 interface Project {
   id: number;
@@ -35,6 +37,49 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: "AlphaGrade – AI-Powered Exam & Evaluation System",
+      description: "End-to-end intelligent examination platform with AI-based grading, real-time monitoring, and MERN architecture",
+      longDescription: "AlphaGrade is a comprehensive AI-driven online examination and evaluation system designed to automate the entire assessment lifecycle. Built using the MERN stack and integrated with LLaMA 3, the platform enables automated question generation, real-time exam monitoring, and intelligent evaluation of descriptive answers. It ensures fairness, reduces manual effort, and provides instant results with detailed feedback while maintaining high scalability and security.",
+      image: projectAlphaGrade,
+      technologies: ["MERN", "LLaMA3", "Socket.IO", "AI", "NLP", "JWT", "Big.js"],
+      features: [
+        "AI-powered descriptive answer evaluation using LLaMA 3",
+        "Automated question generation and exam creation",
+        "Real-time exam monitoring with Socket.IO and activity tracking",
+        "Instant result generation with detailed feedback and justification",
+        "Role-based system (Admin, Faculty, Student)",
+        "Secure authentication using JWT and protected APIs",
+        "High-precision grading using Big.js for accurate scoring",
+        "Performance analytics and exam history tracking",
+        "Live dashboard for faculty to monitor submissions and evaluation progress"
+      ],
+      demo: "https://alpha-grade.netlify.app/",
+      github: "https://github.com/AbbireddyPrasad-BRS/alpha-grade",
+      icon: Brain
+    },
+  {
+      id: 2,
+      title: "Bill Buddy",
+      description: "Smart bill management application with expense tracking and financial insights",
+      longDescription: "A comprehensive bill management application designed to help users track expenses, manage budgets, and gain financial insights through intuitive dashboards and automated categorization.",
+      image: projectBillBuddy,
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js", "JWT"],
+      features: [
+        "Expense tracking with automatic categorization",
+        "Interactive charts and financial analytics",
+        "Budget planning and goal setting",
+        "Multi-currency support",
+        "Secure user authentication",
+        "Mobile-responsive design",
+        "Export reports in multiple formats"
+      ],
+      demo: "https://a-bb.netlify.app",
+      github: "https://github.com/AbbireddyPrasad-BRS/bill-buddy",
+      icon: Receipt
+    },
+
+    {
+      id: 3,
       title: "AI-Based Exam Evaluation System",
       description: "Revolutionary AI-powered grading system using MERN Stack, LLaMA3, and OCR technology",
       longDescription: "A comprehensive exam evaluation system that leverages artificial intelligence to automatically grade and assess exam papers. Built with modern web technologies and advanced AI models for accurate and efficient evaluation.",
@@ -53,7 +98,7 @@ const Projects = () => {
       icon: Brain
     },
     {
-      id: 2,
+      id: 4,
       title: "SpaceX-Themed Interactive UI",
       description: "Immersive space-themed interface with cutting-edge design and smooth UX",
       longDescription: "A visually stunning SpaceX-inspired user interface showcasing modern design principles, smooth animations, and engaging user experience design.",
@@ -72,7 +117,7 @@ const Projects = () => {
       icon: Rocket
     },
     {
-      id: 3,
+      id: 5,
       title: "Rock-Paper-Scissors Online",
       description: "Interactive singleplayer game with real-time gameplay and sleek UI design",
       longDescription: "A fun and engaging multiplayer Rock-Paper-Scissors game featuring real-time gameplay, score tracking, and modern web design principles.",
@@ -90,26 +135,6 @@ const Projects = () => {
       github: "https://github.com/AbbireddyPrasad-BRS/rock-paper-scissiors",
       icon: Gamepad2
     },
-    {
-      id: 4,
-      title: "Bill Buddy",
-      description: "Smart bill management application with expense tracking and financial insights",
-      longDescription: "A comprehensive bill management application designed to help users track expenses, manage budgets, and gain financial insights through intuitive dashboards and automated categorization.",
-      image: projectBillBuddy,
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js", "JWT"],
-      features: [
-        "Expense tracking with automatic categorization",
-        "Interactive charts and financial analytics",
-        "Budget planning and goal setting",
-        "Multi-currency support",
-        "Secure user authentication",
-        "Mobile-responsive design",
-        "Export reports in multiple formats"
-      ],
-      demo: "https://a-bb.netlify.app",
-      github: "https://github.com/AbbireddyPrasad-BRS/bill-buddy",
-      icon: Receipt
-    }
   ];
 
   return (
@@ -259,6 +284,14 @@ const Projects = () => {
             <CarouselPrevious className="hidden md:flex" />
             <CarouselNext className="hidden md:flex" />
           </Carousel>
+
+          {/* Mobile Swipe Indicator */}
+          <div className="md:hidden flex justify-center items-center mt-6 space-x-2 animate-pulse bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full py-2 px-4 w-max mx-auto">
+            <MoveHorizontal className="h-4 w-4 text-cyber-cyan" />
+            <span className="text-cyber-cyan text-sm font-medium">
+              Swipe to view more
+            </span>
+          </div>
 
           {/* Floating Scroll Message */}
           <div className="absolute top-1/2 right-[-120px] transform -translate-y-1/2 z-10 hidden xl:flex items-center space-x-2 bg-cyber-cyan/10 backdrop-blur-sm border border-cyber-cyan/30 rounded-lg px-3 py-2 animate-pulse">
