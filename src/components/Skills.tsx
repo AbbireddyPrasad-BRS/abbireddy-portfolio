@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Code, 
   Database, 
   Laptop, 
   Brain, 
@@ -11,12 +10,7 @@ import {
   MessageSquare,
   Target,
   Lightbulb,
-  Code2,
-  CodeSquareIcon,
-  CodeIcon,
-  LucideCode2,
-  Laptop2,
-  BrainCircuit
+  Code2
 } from "lucide-react";
 import skillsbg from "@/assets/skills-bg.jpg";
 

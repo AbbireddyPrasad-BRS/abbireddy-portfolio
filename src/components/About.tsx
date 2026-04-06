@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { GraduationCap, Award, Target, Zap } from "lucide-react";
-import redbike from "@/assets/redbike wallpapers.png";
 import herobg from "@/assets/hero-bg.jpg";
 
 const About = () => {

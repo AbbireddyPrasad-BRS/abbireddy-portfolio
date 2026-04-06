@@ -7,11 +7,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from "embla-carousel-autoplay";
 import WheelGestures from "embla-carousel-wheel-gestures";
 import { ExternalLink, Github, Brain, Gamepad2, Rocket, Receipt, MoveHorizontal } from "lucide-react";
-// import projectAiEval from "@/assets/project-ai-eval.jpg";
 import projectAiEval from "@/assets/ai-exam-pic.png";
-// import projectRps from "@/assets/project-rps.jpg";
 import projectRps from "@/assets/rps-project-pic.png";
-// import projectSpacex from "@/assets/project-spacex.jpg";
 import projectSpacex from "@/assets/spacex-project-pic.png";
 import projectBillBuddy from "@/assets/bill-buddy.jpg";
 import projectbg from "@/assets/projects-bg.png";
