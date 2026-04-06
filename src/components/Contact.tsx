@@ -20,6 +20,7 @@ import {
   GraduationCap
 } from "lucide-react";
 import connectbg from "@/assets/connect-bg.jpg";
+import InteractiveContact from "./InteractiveContact";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -128,30 +129,15 @@ const Contact = () => {
         id="contact"
         className="py-20 relative min-h-screen flex items-center justify-center bg-gradient-dark overflow-hidden animate-fade-in duration-5000"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.59)), url(${connectbg})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${connectbg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
         }}
       >
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-1 bg-cyber-cyan rounded-full animate-float opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 1}s`,
-              animationDuration: `${3 + Math.random() * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
+      <InteractiveContact />
 
-
-
-      <div className="container mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-cyber font-bold bg-gradient-cyber bg-clip-text text-transparent mb-4">
             Let's Connect

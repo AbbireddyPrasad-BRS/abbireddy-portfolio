@@ -11,6 +11,7 @@ import {
   Twitter,
 } from "lucide-react";
 import redbike from "@/assets/redbike wallpapers.png";
+import InteractiveBackground from "./InteractiveBackground";
 
 const Hero = () => {
   const [typewriterText, setTypewriterText] = useState("");
@@ -41,30 +42,16 @@ const Hero = () => {
       id="hero"
       className="py-20 relative min-h-screen flex items-end justify-center bg-gradient-dark overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 255, 247, 0.03), rgba(0, 0, 0, 0.92)), url(${redbike})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.75)), url(${redbike})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-1 bg-cyber-cyan rounded-full animate-float opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 1}s`,
-              animationDuration: `${3 + Math.random() * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
+      <InteractiveBackground />
 
       {/* Hero content */}
-      <div className="container mx-auto px-4 sm:px-6 text-center z-10">
+      <div className="container relative mx-auto px-4 sm:px-6 text-center z-10">
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -40 }}

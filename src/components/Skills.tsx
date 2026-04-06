@@ -13,6 +13,7 @@ import {
   Code2
 } from "lucide-react";
 import skillsbg from "@/assets/skills-bg.jpg";
+import InteractiveSkills from "./InteractiveSkills";
 
 const Skills = () => {
   const skillCategories = [
@@ -69,29 +70,15 @@ const Skills = () => {
         id="skills"
         className="py-20 relative min-h-screen flex items-center justify-center bg-gradient-dark overflow-hidden animate-fade-in duration-5000"
         style={{
-          backgroundImage: `linear-gradient(rgba(23, 0, 0, 0.3), rgba(39, 68, 74, 0.57)), url(${skillsbg})`,
+          backgroundImage: `linear-gradient(rgba(10, 0, 0, 0.8), rgba(15, 30, 35, 0.85)), url(${skillsbg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
         }}
       >
-<div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-1 bg-cyber-cyan rounded-full animate-float opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 1}s`,
-              animationDuration: `${3 + Math.random() * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
+      <InteractiveSkills />
 
-
-      <div className="container mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-cyber font-bold bg-gradient-cyber bg-clip-text text-transparent mb-4">
             Skills & Expertise

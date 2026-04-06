@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { GraduationCap, Award, Target, Zap } from "lucide-react";
 import herobg from "@/assets/hero-bg.jpg";
+import InteractiveAbout from "./InteractiveAbout";
 
 const About = () => {
   const skills = [
@@ -29,29 +30,15 @@ const About = () => {
       id="about"
       className="py-20 relative min-h-screen flex items-center justify-center bg-gradient-dark overflow-hidden animate-fade-in duration-5000"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.71), rgba(0, 0, 0, 0.41)), url(${herobg})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${herobg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
     >
+      <InteractiveAbout />
 
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-1 bg-cyber-cyan rounded-full animate-float opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 1}s`,
-              animationDuration: `${3 + Math.random() * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
-      
-      <div className="container mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-cyber font-bold bg-gradient-cyber bg-clip-text text-transparent mb-4">
             About Me
